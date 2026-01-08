@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Romain — Contact</title>
+  <meta name="description" content="Contacter Romain." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <header class="header header-compact">
+    <div class="header-inner">
+      <nav class="nav">
+        <a class="brand" href="index.html" aria-label="Accueil">
+          <span class="logo">R</span>
+          <div class="brand-text">
+            <strong>Romain</strong>
+            <span class="muted">Développement Web • Électricité</span>
+          </div>
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+          <span class="sr-only">Ouvrir le menu</span> ☰
+        </button>
+
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Accueil</a>
+          <a class="btn small nav-cv" href="cv-romain.pdf" target="_blank" rel="noopener">
+  Télécharger CV
+</a>
+
+          <a href="recherche.html">Recherche</a>
+          <a href="competences.html">Compétences</a>
+          <a href="parcours.html">Parcours</a>
+          <a class="active" href="contact.html">Contact</a>
+          <button class="theme-btn" id="themeBtn" type="button" aria-pressed="false" title="Changer le thème">🌙</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p class="muted">Le formulaire ouvre Gmail avec un mail pré-rempli</p>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Coordonnées</h3>
+            <div class="contact-lines">
+              <div class="line">
+                <span class="k">Email</span>
+                <span class="v">sallesromain.pro@gmail.com</span>
+              </div>
+            </div>
+            <div class="note">
+              <strong>Astuce :</strong> tu peux personnaliser le texte du mail en 10 secondes.
+            </div>
+          </div>
+
+          <form class="card" id="contactForm">
+            <h3>Message rapide</h3>
+            <label>
+              <span>Votre nom / entreprise</span>
+              <input required name="name" placeholder="Ex : Entreprise X" />
+            </label>
+            <label>
+              <span>Votre email</span>
+              <input required type="email" name="email" placeholder="ex: contact@entreprise.com" />
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea required name="message" rows="7" placeholder="Bonjour Romain, nous avons une opportunité de stage…"></textarea>
+            </label>
+
+            <p></p>
+            <button class="btn" type="submit">Ouvrir Gmail</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <p>© <span id="year"></span> Romain</p>
+      <p class="muted">sallesromain.pro@gmail.com</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
