@@ -47,7 +47,6 @@ if (typingEl) {
   const typingPhrases = [
     "Développement web : HTML, CSS, JavaScript.",
     "Bac Pro SN — base technique solide.",
-    "Recherche de stage en électricité."
   ];
 
   let tp = 0, ti = 0, deleting = false;
@@ -69,27 +68,36 @@ if (typingEl) {
   })();
 }
 
-/* Counters (si présents) */
-const counters = $$(".stat-num");
+/* Counters (support chiffres + texte) */
+const counters = document.querySelectorAll(".stat-num");
 let counterStarted = false;
 
 function animateCount(el) {
-  const target = Number(el.dataset.count || "0");
+  const target = Number(el.dataset.count);
+  
+  // Si pas de nombre → on affiche simplement le texte défini
+  if (isNaN(target)) {
+    el.textContent = el.dataset.text || el.textContent;
+    return;
+  }
+
+  const suffix = el.dataset.suffix || "";
   let current = 0;
   const step = Math.max(1, Math.floor(target / 40));
+
   const timer = setInterval(() => {
     current += step;
     if (current >= target) {
       current = target;
       clearInterval(timer);
     }
-    el.textContent = String(current);
+    el.textContent = current + suffix;
   }, 25);
 }
 
 function startCountersIfVisible() {
   if (counterStarted || counters.length === 0) return;
-  const hero = $(".hero");
+  const hero = document.querySelector(".hero");
   if (!hero) return;
 
   const rect = hero.getBoundingClientRect();
@@ -98,6 +106,7 @@ function startCountersIfVisible() {
     counters.forEach(animateCount);
   }
 }
+
 window.addEventListener("scroll", startCountersIfVisible, { passive: true });
 startCountersIfVisible();
 
